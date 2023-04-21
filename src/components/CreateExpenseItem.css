@@ -1,0 +1,44 @@
+.outer{
+    justify-content: space-between;
+  align-items: center;
+    display: flex;
+    border: solid 4px black;
+    border-radius: 10px;
+    margin: 2%;
+    background-color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: 500;
+    
+}
+.outer h2{
+     
+        color: #3a3a3a;
+        font-size: 1.5rem;
+        flex: 1;
+        margin: 0 1rem;
+        color: rgb(16, 1, 1);
+      
+}
+
+.date{
+    border: solid 2px black;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 1%;
+    
+}
+
+.amount{
+    border: solid 2px black;
+    border-radius: 10px;
+    margin: 2%;
+    padding: 1%;  
+}
+
+
+
+.title {
+     
+      flex: 1;
+    }
+
