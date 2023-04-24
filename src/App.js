@@ -1,38 +1,42 @@
 // import logo from './logo.svg';
 // import './App.css';
-import NewExpense from "./components/NewExpense";
-import Expenses from "./components/Expenses";
-function App() {
-  const Expense=[
-    {
-    id:1,
-    title:"pen",
-    amount:20,
-     date : new Date("2022-03-25")
-  },
-  {
-    id:2,
-    title:"paper",
-    amount:200,
-    date : new Date("2022-03-24")
-  },
-  {
-    id:3,
-    title:"notebook",
-    amount:65,
-    date : new Date("2022-03-23")
-  }
-]
 
-  const enteredDataHandler=newData=>{
-    console.log('in aap.js');
-    console.log(newData);
-  }
+import React, { useState } from "react";
+import NewExpenseForm from "./components/NewExpenseForm";
+import Expenses from "./components/Expenses";
+const dummyExpense = [
+  {
+    id: 1,
+    title: "pen",
+    amount: 20,
+    date: new Date("2020-04-18"),
+  },
+  {
+    id: 2,
+    title: "paper",
+    amount: 200,
+    date: new Date("2021-04-18"),
+  },
+  {
+    id: 3,
+    title: "notebook",
+    amount: 65,
+    date: new Date("2022-04-18"),
+  },
+];
+function App() {
+  const [Expense, setExpense] = useState(dummyExpense);
+
+  const enteredDataHandler = (newData) => {
+    setExpense((prevExpense) => {
+      return [newData, ...prevExpense];
+    });
+  };
+  
   return (
     <div className="App">
-      <NewExpense onAddExpenseData={enteredDataHandler} />
       
-
+      <NewExpenseForm onAddExpenseData={enteredDataHandler} />
       <Expenses item={Expense} />
     </div>
   );

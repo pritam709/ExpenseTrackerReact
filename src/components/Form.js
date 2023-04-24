@@ -1,28 +1,34 @@
 import "./Form.css";
 import React, { useState } from "react";
 const Form = (props) => {
-  const [title, setTitle] = useState("");
+  const [title0, setTitle] = useState("");
   const titleChange = (event) => {
-    const title = event.target.value;
-    setTitle(title);
+    const titleEntered = event.target.value;
+    setTitle(titleEntered);
   };
-  const [amount, setAmount] = useState("");
+  const [amount0, setAmount] = useState("");
   const amountChange = (event) => {
-    const amt = event.target.value;
-    setAmount(amt);
+    const amtEntered = event.target.value;
+    setAmount(amtEntered);
   };
-  const [date, setdate] = useState("");
+  const [date0, setdate] = useState("");
   const dateChange = (event) => {
-    const date = event.target.value;
-    setdate(date);
+    const dateEntered = event.target.value;
+   
+    
+    setdate(dateEntered);
   };
   const submitHandler = (event) => {
     event.preventDefault();
     const ExpenseData = {
-      newTitle: title,
-      newAmount: amount,
-      newDate: new Date(date),
+      title: title0,
+      amount: amount0,
+      date: new Date(date0),
+     
     };
+  
+
+    
     props.onSubmitNewExpenseData(ExpenseData);
     setAmount("");
     setTitle("");
@@ -33,19 +39,22 @@ const Form = (props) => {
       <div className="form">
         <div className="form-control">
           <label>Title:</label>
-          <input type="text" onChange={titleChange} value={title}></input>
+          <input type="text" onChange={titleChange} value={title0}></input>
         </div>
         <div className="form-control">
           <label>Amount:</label>
-          <input type="number" onChange={amountChange} value={amount}></input>
+          <input type="number" onChange={amountChange} value={amount0}></input>
         </div>
         <div className="form-control">
           <label>Date:</label>
-          <input type="date" onChange={dateChange} value={date}></input>
+          <input type="date" onChange={dateChange} value={date0}></input>
         </div>
+        
         <div className="form-control">
+        <button type="button" onClick={props.setEditing}>Cancel</button>
           <button type="submit">Add Expense</button>
         </div>
+        
       </div>
     </form>
   );
